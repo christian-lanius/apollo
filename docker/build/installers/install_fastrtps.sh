@@ -21,15 +21,15 @@ set -e
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
-# apt-get install -y libblas-dev liblapack-dev gfortran
+git clone https://github.com/eProsima/Fast-RTPS.git
+cd Fast-RTPS
+git fetch && git fetch --tags
+git checkout v1.7.2
 
-wget https://github.com/ApolloAuto/osqp-contrib/archive/master.zip
-unzip master.zip
+mkdir build
+cd build
+cmake -DTHIRDPARTY=ON ..
+make -j 8
+make install
+ldconfig
 
-pushd osqp-contrib-master
-  mkdir -p /usr/local/include/osqp
-  cp -r osqp/include /usr/local/include/osqp/
-  cp osqp/libosqp.so /usr/local/lib/
-popd
-
-rm -fr master.zip osqp-contrib-master
