@@ -22,10 +22,10 @@ set -e
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
 # Install OpenGL
-echo "deb http://ppa.launchpad.net/keithw/glfw3/ubuntu trusty main" | \
-    sudo tee -a /etc/apt/sources.list.d/fillwave_ext.list
-echo "deb-src http://ppa.launchpad.net/keithw/glfw3/ubuntu trusty main" | \
-    sudo tee -a /etc/apt/sources.list.d/fillwave_ext.list
+#echo "deb http://ppa.launchpad.net/keithw/glfw3/ubuntu trusty main" | \
+#    sudo tee -a /etc/apt/sources.list.d/fillwave_ext.list
+#echo "deb-src http://ppa.launchpad.net/keithw/glfw3/ubuntu trusty main" | \
+#    sudo tee -a /etc/apt/sources.list.d/fillwave_ext.list
 apt-get update -y
 apt-get install -y --force-yes libglfw3 libglfw3-dev freeglut3-dev
 

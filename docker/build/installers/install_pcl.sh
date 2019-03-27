@@ -21,12 +21,29 @@ set -e
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
-wget https://apollocache.blob.core.windows.net/apollo-docker/pcl-1.7_x86.tar.gz
-tar xzf pcl-1.7_x86.tar.gz
-mkdir -p /usr/local/include/pcl-1.7
-mv pcl-1.7_x86/include/pcl /usr/local/include/pcl-1.7/
-mv pcl-1.7_x86/lib/* /usr/local/lib/
-mv pcl-1.7_x86/share/pcl-1.7 /usr/local/share/
+# wget https://apollocache.blob.core.windows.net/apollo-docker/pcl-1.7_x86.tar.gz
+# tar xzf pcl-1.7_x86.tar.gz
+# mkdir -p /usr/local/include/pcl-1.7
+# mv pcl-1.7_x86/include/pcl /usr/local/include/pcl-1.7/
+# mv pcl-1.7_x86/lib/* /usr/local/lib/
+# mv pcl-1.7_x86/share/pcl-1.7 /usr/local/share/
+#rm -fr pcl-1.7_x86.tar.gz pcl-1.7_x86
+
+git clone https://github.com/PointCloudLibrary/pcl.git;
+cd pcl;
+# git checkout -b 1.7.2 pcl-1.7.2;
+git checkout -b 1.9.1 pcl-1.9.1;
+
+# patch CMakeLists.txt < ../pcl.patch;
+
+mkdir build
+cd build
+cmake  ..
+make -j 8
+cp -a lib/* /usr/local/lib/
+ldconfig
+
 
 # Clean up.
-rm -fr pcl-1.7_x86.tar.gz pcl-1.7_x86
+cd "$(dirname "${BASH_SOURCE[0]}")"
+rm -rf pcl

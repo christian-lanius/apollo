@@ -32,8 +32,8 @@ apt-get update -y && apt-get install -y \
     libopenni-dev \
     libqhull-dev \
     libsnappy-dev \
-    libvtk5-dev \
-    libvtk5-qt4-dev \
+    libvtk7-dev \
+    libvtk7-qt-dev \
     mpi-default-dev
 
 wget https://apollocache.blob.core.windows.net/apollo-docker/caffe_x86.tar.gz
