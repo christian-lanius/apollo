@@ -47,6 +47,7 @@ COPY installers /tmp/installers
 RUN bash /tmp/installers/install_adv_plat.sh
 RUN bash /tmp/installers/install_bazel.sh
 RUN bash /tmp/installers/install_bazel_packages.sh
+RUN bash /tmp/installers/install_bosfs.sh
 RUN bash /tmp/installers/install_conda.sh
 RUN bash /tmp/installers/install_fastrtps.sh
 RUN bash /tmp/installers/install_gflags_glog.sh
@@ -59,6 +60,7 @@ RUN bash /tmp/installers/install_nlopt.sh
 RUN bash /tmp/installers/install_node.sh
 RUN bash /tmp/installers/install_ota.sh
 RUN bash /tmp/installers/install_pcl.sh
+RUN bash /tmp/installers/install_poco.sh
 RUN bash /tmp/installers/install_protobuf.sh
 RUN bash /tmp/installers/install_python_modules.sh
 RUN bash /tmp/installers/install_qp_oases.sh
